@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        serif: ["var(--font-basteleur-moonlight)"],
+        sans: ["var(--font-basteleur-bold)"],
+      },
     },
   },
   plugins: [],
