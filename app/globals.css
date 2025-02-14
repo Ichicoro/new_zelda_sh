@@ -7,12 +7,12 @@
   --foreground: #3f3830;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #241f1a;
+    --foreground: #c3b7ab;
   }
-} */
+}
 
 body {
   color: var(--foreground);
@@ -20,7 +20,21 @@ body {
   font-family: "Basteleur Moonlight", sans-serif;
 }
 
+svg {
+  color: currentColor;
+}
+
 em {
   @apply font-sans;
   font-style: normal;
+}
+
+a {
+  @apply hover:underline hover:decoration-dotted;
+}
+
+.uses-cool-links {
+  & a {
+    @apply hover:underline hover:decoration-dotted underline-offset-2 font-sans;
+  }
 }

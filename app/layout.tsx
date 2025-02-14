@@ -28,8 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="darkreader-lock" />
+      </head>
       <body
-        className={`antialiased bg-[#c3b7ab] text-[#3f3830] font-serif ${BasteleurMoonlight.variable} ${BasteleurBold.variable}`}
+        className={`antialiased font-serif ${BasteleurMoonlight.variable} ${BasteleurBold.variable}`}
       >
         <div className="max-w-[701px] w-full mx-auto px-2">
           {children}
