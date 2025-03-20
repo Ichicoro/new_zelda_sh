@@ -38,3 +38,11 @@ a {
     @apply hover:underline hover:decoration-dotted underline-offset-2 font-sans;
   }
 }
+
+h1 {
+  @apply text-[2.50rem] sm:text-5xl;
+}
+
+h2 {
+  @apply text-3xl sm:text-4xl;
+}
