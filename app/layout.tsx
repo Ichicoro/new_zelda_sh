@@ -30,6 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="darkreader-lock" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#c3b7ab" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
       </head>
       <body
         className={`antialiased font-serif ${BasteleurMoonlight.variable} ${BasteleurBold.variable}`}
