@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`antialiased font-serif ${BasteleurMoonlight.variable} ${BasteleurBold.variable}`}
       >
-        <div className="max-w-[701px] w-full mx-auto px-2">
+        <div className="max-w-[701px] w-full mx-auto px-4">
           {children}
         </div>
       </body>
