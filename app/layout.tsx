@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
+import { Germania_One, Rosarivo } from "next/font/google";
 import "./globals.css";
+import Lair from "../public/lair.svg";
+
+const germania = Germania_One({
+  weight: "400",
+  subsets: ["latin"],
+})
+
+const rosarivo = Rosarivo({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "zelda.sh",
@@ -35,10 +47,20 @@ export default function RootLayout({
         <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
       </head>
       <body
-        className={`antialiased font-serif ${BasteleurMoonlight.variable} ${BasteleurBold.variable}`}
+        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
       >
-        <div className="max-w-[701px] w-full mx-auto px-4">
-          {children}
+        <div className="">
+          <div className="flex flex-col md:flex-row w-full my-8 gap-5 md:gap-14 items-start">
+            <div className="w-[147px] mx-auto relative"> {/* mb-8 sm:mb-0 sm:mr-14 */}
+              <div className="md:fixed mx-auto gap-5 flex flex-col">
+                <Lair className="w-[147px]" />
+                {/* <Header showTitle={false} activePath="blog" /> */}
+              </div>
+            </div>
+            <main className="flex flex-col gap-4 max-w-[calc(100vw_-_3rem)] md:max-w-[33rem]">
+              {children}
+            </main>
+          </div>
         </div>
       </body>
     </html>

@@ -14,7 +14,10 @@ export default {
       },
       fontFamily: {
         serif: ["var(--font-basteleur-moonlight)"],
+        // serif: ["Rosarivo", "serif"],
         sans: ["var(--font-basteleur-bold)"],
+        "germania-one": ["Germania One", "cursive"],
+        "rosarivo": ["Rosarivo", "serif"],
       },
     },
   },

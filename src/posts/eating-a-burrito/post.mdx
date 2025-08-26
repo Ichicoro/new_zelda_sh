@@ -1,0 +1,184 @@
+export const metadata = {
+  // THIS IS ALL AI SLOP TO TEST OUT THE POSTS PLEASE IGNORE <3
+  title: "what I do when I setup Macs",
+  description:
+    "A big collection of tips to level up your macOS usage, from window management to keyboard shortcuts and creative workflow boosters.",
+  authors: [{ name: "Zelda" }],
+  date: "2025-08-25",
+  disabled: true,
+  // keywords: [
+  //   "macOS",
+  //   "tips",
+  //   "tricks",
+  //   "productivity",
+  //   "keyboard shortcuts",
+  //   "window management",
+  //   "finder",
+  //   "terminal",
+  //   "creative workflow",
+  //   "security",
+  //   "privacy",
+  // ],
+};
+
+# what I do when I setup Macs
+
+macOS is often known for its clean interface and “just works” experience, but behind that simplicity, there are tons of hidden features, shortcuts, and tricks that can really speed up your workflow—especially if you do software development, product design, or creative work. Here’s a big collection of tips to level up your macOS usage.
+
+## 🖥️ Window \& Workspace Management
+
+### 1. **Split View Made Easy**
+
+- Hold down the green traffic-light button (top-left of a window).
+- Choose **Tile Window to Left/Right of Screen**.
+- Super useful for coding side-by-side with documentation or design apps.
+
+
+### 2. **Quickly Move Between Desktops**
+
+- Use `Ctrl + → / ←` to jump between different Spaces (Desktops).
+- Create multiple Spaces in **Mission Control** (F3 or swipe up with three/four fingers).
+
+
+### 3. **Window Snapping (Hidden Feature)**
+
+- Drag any window to the left/right edge of the screen until it "snaps."
+- Doesn’t have as many features as Windows, but still useful.
+- For more advanced window snapping, third-party tools like *Rectangle* or *Magnet* work great.
+
+
+
+## ⌨️ Keyboard Shortcuts You’ll Actually Use
+
+### 4. **Cycle Through Apps Without Exposing Menus**
+
+- `Cmd + Tab` to switch apps.
+- Keep holding `Cmd` and press `Q` to quit or `H` to hide without letting go of the switcher.
+
+
+### 5. **Spotlight as a Launcher**
+
+- `Cmd + Space` → type the app filename, a calculation, even a currency conversion.
+- Example: `100 USD in EUR` gives real-time conversion.
+
+
+### 6. **Emoji \& Symbols Panel**
+
+- `Ctrl + Cmd + Space` opens the emoji/symbol picker anywhere.
+- Very handy for filenames, Markdown notes, or design mockups.
+
+## 📂 Finder \& File Management
+
+### 7. **Quick Look (The Magic Preview)**
+
+- Select a file in Finder.
+- Press `Space` and instantly preview it.
+- Works with PDFs, images, videos, and most text files—faster than opening apps.
+
+
+### 8. **Batch Rename Files**
+
+- Select multiple files → Right-click → **Rename X Items...**
+- Options: Add sequential numbers, replace text, or apply custom naming patterns.
+
+
+### 9. **Path Bar in Finder**
+
+- Enable from Finder > View > Show Path Bar.
+- Lets you see exactly where a file is located and drag-drop from the path.
+
+
+### 10. **Copy File Path Fast**
+
+- Right-click a file → Hold `Option` → Select **Copy [filename] as Pathname**.
+- Perfect for programming or Terminal workflows.
+
+
+
+## 🛠️ Terminal Power Tricks
+
+### 11. **Open Finder from Terminal**
+
+```bash
+open .
+```
+
+Opens the current directory in Finder. Super quick when navigating code repos.
+
+### 12. **Open Any File in Default App**
+
+```bash
+open filename.pdf
+```
+
+
+### 13. **Clear DNS Cache (for Devs)**
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+Great when local domains or APIs are giving you trouble.
+
+
+
+## 🎨 Creative Workflow Boosters
+
+### 14. **Instant Screenshots**
+
+- `Cmd + Shift + 4` → drag area for screenshot.
+- `Cmd + Shift + 4 + Space` → take screenshot of a window.
+- By default, they go to Desktop, but you can change it with:
+
+```bash
+defaults write com.apple.screencapture location ~/Documents/Screenshots
+killall SystemUIServer
+```
+
+
+### 15. **Color Picker Tool**
+
+- macOS has a hidden **digital color meter** (`Digital Color Meter` in Spotlight).
+- Lets you grab color hex values easily for design work.
+
+
+### 16. **Markup Tools Built-in**
+
+- Open any image in Preview → click the **Markup** icon.
+- You can annotate screenshots, sketches, or design notes without needing Photoshop.
+
+
+
+## 🔋 Performance \& Productivity
+
+### 17. **Battery Usage Insights**
+
+- Click the battery icon in menu bar → see which apps are using significant energy.
+- Kill any apps draining too much.
+
+
+### 18. **Hot Corners**
+
+- System Settings → Desktop \& Dock → Hot Corners.
+- Assign corners to actions like "Lock Screen," "Show Desktop," or "Start Screensaver."
+
+
+### 19. **Clipboard History (3rd-party Hack)**
+
+- macOS doesn’t keep clipboard history by default.
+- Apps like *Paste* or *Maccy* let you save multiple copied items—amazing for devs/designers.
+
+
+
+## 🔒 Security \& Privacy
+
+### 20. **Lock Screen Shortcut**
+
+- `Ctrl + Cmd + Q` instantly locks your mac.
+- Good for when you step away from your desk.
+
+
+### 21. **Create Encrypted Disk Images**
+
+- Use Disk Utility → File → New Image → Blank Image.
+- Password-protect project files or sensitive documents.

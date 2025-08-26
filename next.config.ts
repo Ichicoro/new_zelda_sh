@@ -1,4 +1,13 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -11,16 +20,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-  experimental: {
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-  },
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

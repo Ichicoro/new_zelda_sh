@@ -15,9 +15,14 @@
 }
 
 body {
+  @apply px-4;
   color: var(--foreground) !important;
   background: var(--background) !important;
   font-family: "Basteleur Moonlight", sans-serif;
+}
+
+main {
+  /* @apply px-4; */
 }
 
 svg {
@@ -40,9 +45,13 @@ a {
 }
 
 h1 {
-  @apply text-[2.50rem] sm:text-5xl;
+  @apply text-[2.50rem];
 }
 
 h2 {
-  @apply text-3xl sm:text-4xl;
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
 }
