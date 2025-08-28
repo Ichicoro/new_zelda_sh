@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #c3b7ab;
-  --foreground: #3f3830;
+  --background: oklch(0.7861 0.0216 67.51); /* #c3b7ab */
+  --foreground: oklch(0.3454 0.0167 70.94); /* #3f3830 */
+  --code-background: oklch(0.3454 0.0167 70.94);
+  --code-foreground: oklch(0.7861 0.0216 67.51);
+  --quote-background: oklch(from oklch(0.3454 0.0167 70.94) l c h / 0.85);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #241f1a;
-    --foreground: #c3b7ab;
+    --background: oklch(0.2432 0.012 67.21); /* #241f1a */
+    --foreground: oklch(78.605% 0.02153 67.417); /* #c3b7ab */
+    --code-background: oklch(35.904% 0.01846 67.28); /* #5f564d */
+    --code-foreground: oklch(78.605% 0.02153 67.417); /* #c3b7ab */
   }
 }
 
@@ -30,8 +35,12 @@ svg {
 }
 
 em {
-  @apply font-sans;
+  @apply !italic font-normal;
   font-style: normal;
+}
+
+strong {
+  @apply font-sans;
 }
 
 a {
@@ -54,4 +63,43 @@ h2 {
 
 h3 {
   @apply text-2xl;
+}
+
+pre {
+  @apply font-mono bg-code-background text-code-foreground px-2 py-1 pb-1.5 rounded text-sm overflow-scroll;
+  & code {
+    @apply px-0 py-0 rounded-none;
+  }
+}
+
+blockquote *:not(:first-child) {
+  @apply pb-1;
+}
+
+code {
+  @apply font-mono bg-code-background text-code-foreground px-1 py-0.5 rounded text-sm overflow-scroll;
+}
+
+ul li {
+  position: relative;
+  margin-left: 1rem;
+  &::before {
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g transform="matrix(2.74484,0,0,2.74484,-15.7989,-15.747)"><path fill="%233f3830" d="M7.466,6.03C7.556,5.85 7.74,5.737 7.942,5.737C8.143,5.737 8.327,5.85 8.418,6.03L8.865,6.915C8.874,6.933 8.886,6.95 8.9,6.964C8.915,6.978 8.931,6.99 8.949,6.999L9.835,7.447C10.014,7.537 10.128,7.722 10.128,7.923C10.128,8.124 10.014,8.308 9.835,8.399L8.949,8.846C8.931,8.855 8.915,8.867 8.9,8.882C8.886,8.896 8.874,8.912 8.865,8.93L8.418,9.816C8.327,9.995 8.143,10.109 7.942,10.109C7.74,10.109 7.556,9.995 7.466,9.816L7.018,8.93C7.009,8.912 6.997,8.896 6.983,8.882C6.969,8.867 6.952,8.855 6.934,8.846L6.049,8.399C5.869,8.308 5.756,8.124 5.756,7.923C5.756,7.722 5.869,7.537 6.049,7.447L6.934,6.999C6.952,6.99 6.969,6.978 6.983,6.964C6.997,6.95 7.009,6.933 7.018,6.915L7.466,6.03Z"/></g></svg>');
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    scale: 0.9;
+    left: -1rem;
+    top: 0.275rem;
+    background-repeat: no-repeat;
+    /* background-image: url("/ul_point.svg"); */
+    /* background-color: var(--foreground); */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ul li::before {
+    background-image: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g transform="matrix(2.74484,0,0,2.74484,-15.7989,-15.747)"><path fill="%23c3b7ab" d="M7.466,6.03C7.556,5.85 7.74,5.737 7.942,5.737C8.143,5.737 8.327,5.85 8.418,6.03L8.865,6.915C8.874,6.933 8.886,6.95 8.9,6.964C8.915,6.978 8.931,6.99 8.949,6.999L9.835,7.447C10.014,7.537 10.128,7.722 10.128,7.923C10.128,8.124 10.014,8.308 9.835,8.399L8.949,8.846C8.931,8.855 8.915,8.867 8.9,8.882C8.886,8.896 8.874,8.912 8.865,8.93L8.418,9.816C8.327,9.995 8.143,10.109 7.942,10.109C7.74,10.109 7.556,9.995 7.466,9.816L7.018,8.93C7.009,8.912 6.997,8.896 6.983,8.882C6.969,8.867 6.952,8.855 6.934,8.846L6.049,8.399C5.869,8.308 5.756,8.124 5.756,7.923C5.756,7.722 5.869,7.537 6.049,7.447L6.934,6.999C6.952,6.99 6.969,6.978 6.983,6.964C6.997,6.95 7.009,6.933 7.018,6.915L7.466,6.03Z"/></g></svg>');
+  }
 }

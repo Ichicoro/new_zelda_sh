@@ -1,0 +1,108 @@
+import Star from "@/public/ul_point.svg"
+
+export const metadata = {
+  title: "How to rescue a broken Arch Linux install (btrfs edition)",
+  description:
+    "A guide to recovering a non-booting Arch Linux btrfs-based system using the live Arch env.",
+  authors: [{ name: "Zelda" }],
+  date: "2025-08-28",
+  disabled: false,
+  keywords: [
+    "Arch Linux",
+    "Linux",
+    "system recovery",
+    "live USB",
+    "boot issues",
+    "command line",
+    "filesystem repair",
+    "systemd-boot",
+    "chroot",
+  ],
+}
+
+# How to rescue a broken Arch Linux install (btrfs edition)
+
+A couple of days ago I had an issue with my Arch install: the system ran out of space on the boot drive while upgrading the kernel, and I was stuck with a broken system that wouldn't even be seen by the UEFI bios. Here's how I fixed it :D
+
+**_A TL;DR is available at the bottom of the article! ♥︎_**
+
+## Prerequisites
+
+  - *An Arch Linux live USB (which you can get from the [Arch Linux download page](https://archlinux.org/download/)).*
+  - *A working internet connection on the live environment, if you need to rerun post-install hooks.*
+
+## Step 1: Boot from the Live USB
+
+Sounds easy enough, you probably don't need me to tell you how to handle this :D
+
+## Step 2: Mount the arch install
+
+First off, list all your drives with `fdisk -l`, so that you know what to pick.
+
+```bash
+$ fdisk -l
+Disk /dev/sda: 223.57 GiB, 240057409536 bytes, 468862128 sectors
+Disk model: KINGSTON SA400S3
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 3AF5C031-FC67-4A57-8786-2C6872DD8C6B
+
+Device         Start       End   Sectors   Size Type
+/dev/sda1       2048   1048575   1046528   511M EFI System
+/dev/sda2    1050624 435306495 434255872 207.1G Linux filesystem
+/dev/sda3  435306496 468860927  33554432    16G Linux swap
+```
+
+In this case, `/dev/sda2` is the btrfs main partition (which will be mounted on `/mnt`), while `/dev/sda1` is the EFI partition (which we'll mount on `/mnt/boot`).
+
+This is where, with btrfs, it gets a bit tricky. See, normally you'd be able to mount the drive with `mount /dev/sda2 /mnt`... but with btrfs, you have to specify which subvolume to use. This can be done with the `-o subvol=@` flag.
+
+Thus, our final mount commands are as follows:
+
+```bash
+mount -o subvol=@ /dev/sda2 /mnt
+mount /dev/sda1 /mnt/boot
+```
+
+> ### <Star className="inline ml-0 w-3 h-4" /> Side note!
+> 
+> It might be useful to mount some additional virtual filesystems to allow docker to work. In that case, you can use the following mount commands:
+> ```bash
+> mount -t proc /proc /mnt/proc
+> mount --rbind /sys /mnt/sys
+> mount --rbind /dev /mnt/dev
+> mount --rbind /run /mnt/run
+> ```
+
+We can then normally proceed by chrooting inside our installation with `arch-chroot /mnt`.
+
+You'll probably want to run `pacman -S linux` to make it run all the postinstall hooks (`mkinitcpio`, etc...).
+
+<br />
+
+### Wrapping it all up〔TL;DR〕
+
+```bash
+# Check which partitions to mount (in this case, /dev/sda1 and /dev/sda2)
+fdisk -l
+
+# Mount the aforementioned partitions (with -o subvol=@)
+mount -o subvol=@ /dev/sda2 /mnt
+mount /dev/sda1 /mnt/boot
+
+# (Optional) Mount virtual FSes to allow things like Docker to work
+mount -t proc /proc /mnt/proc
+mount --rbind /sys /mnt/sys
+mount --rbind /dev /mnt/dev
+mount --rbind /run /mnt/run
+
+# Chroot into the install
+arch-chroot /mnt
+
+# Run post-install hooks again
+pacman -S linux
+```
+
+I hope this was useful to someone! :)

@@ -45,6 +45,21 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#c3b7ab" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
+        <script type="text/javascript" defer>
+          {/* TODO: Fix */}
+          {`document.querySelectorAll(".code-copybutton").forEach((button) => {
+          button.addEventListener("click", async () => {
+            console.log("copy button clicked");
+            const code = button.nextElementSibling?.innerText;
+            if (!code) return;
+            await navigator.clipboard.writeText(code);
+            button.innerText = "copied!";
+            setTimeout(() => {
+              button.innerText = "copy";
+            }, 2000);
+          })
+        })`}
+        </script>
       </head>
       <body
         className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
