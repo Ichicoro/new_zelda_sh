@@ -34,6 +34,43 @@ export default async function PostPage({ params }: Props) {
   }
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  try {
+    const { metadata } = await import(`@/src/posts/${slug}/post.mdx`);
+    return {
+      title: metadata.title,
+      description: metadata.description,
+      keywords: metadata.keywords,
+      authors: metadata.authors.map((a: { name: string }) => a.name),
+      openGraph: {
+        title: metadata.title,
+        description: metadata.description,
+        type: "article",
+        publishedTime: new Date(metadata.date).toISOString(),
+        authors: metadata.authors.map((a: { name: string }) => a.name),
+        // images: [], // TODO
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: metadata.title,
+        description: metadata.description,
+        // images: [], // TODO
+      },
+    };
+  } catch {
+    return {
+      title: "Post not found",
+      description: "The post could not be found.",
+    };
+  }
+}
+
 export async function generateStaticParams() {
   const files = await readdir("./src/posts");
   const posts = [];
