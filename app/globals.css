@@ -93,9 +93,11 @@ ul li {
     left: -1rem;
     top: 0.275rem;
     background-repeat: no-repeat;
-    /* background-image: url("/ul_point.svg"); */
-    /* background-color: var(--foreground); */
   }
+}
+
+ul.offset-dot li::before {
+  top: 0.4rem;
 }
 
 @media (prefers-color-scheme: dark) {

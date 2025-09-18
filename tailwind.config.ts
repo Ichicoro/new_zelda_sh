@@ -24,6 +24,8 @@ export default {
         "germania-one": ["Germania One", "cursive"],
         "rosarivo": ["Rosarivo", "serif"],
         mono: ["Space Mono", "monospace"],
+        "chicago": ["ChicagoFLF"],
+        "goudy": ["SortsMillGoudy", "serif"],
       },
     },
   },

@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import { Germania_One, Rosarivo } from "next/font/google";
 import "./globals.css";
 import Lair from "../public/lair.svg";
+import Star from "@/public/ul_point.svg"
 
 const germania = Germania_One({
   weight: "400",
@@ -33,11 +34,30 @@ const BasteleurMoonlight = localFont({
   variable: "--font-basteleur-moonlight",
 });
 
+const ChicagoFLF = localFont({
+  src: "../public/fonts/ChicagoFLF.ttf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-chicago",
+});
+
+const SortsMillGoudy = localFont({
+  src: [
+    { path: "../public/fonts/sorts-mill/GoudySTM-webfont.woff" },
+    // { path: "../public/fonts/sorts-mill/GoudySTM-Italic-webfont.woff" }
+  ],
+  weight: "400",
+  style: "serif",
+  variable: "--font-sorts-mill-goudy",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const spinnedStars = <><Star className="inline ml-0 w-3 h-4" /><Star className="inline ml-1 w-3 h-4 rotate-12" /><Star className="inline ml-1 w-3 h-4 rotate-[24deg]" /></>
+
   return (
     <html lang="en">
       <head>
@@ -62,19 +82,44 @@ export default function RootLayout({
         </script>
       </head>
       <body
-        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
+        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} ${ChicagoFLF.className} ${SortsMillGoudy.className} flex justify-center`}
       >
         <div className="">
-          <div className="flex flex-col md:flex-row w-full my-8 gap-5 md:gap-14 items-start">
+          <div className="flex flex-col lg:flex-row w-full my-8 gap-5 lg:gap-14 items-start">
             <div className="w-[147px] mx-auto relative"> {/* mb-8 sm:mb-0 sm:mr-14 */}
-              <div className="md:fixed mx-auto gap-5 flex flex-col">
+              <div className="lg:fixed mx-auto gap-5 flex flex-col">
                 <Lair className="w-[147px]" />
+                <div>
+                  <h3 className="text-lg font-chicago font-black"></h3>
+                </div>
                 {/* <Header showTitle={false} activePath="blog" /> */}
               </div>
             </div>
-            <main className="flex flex-col gap-4 max-w-[calc(100vw_-_3rem)] md:max-w-[33rem]">
+            <main className="flex flex-col gap-4 max-w-[calc(100vw_-_3rem)] lg:max-w-[33rem]">
               {children}
             </main>
+            {/* <div className="w-[147px] hidden lg:block lg:mx-auto relative">
+              <div className="lg:fixed mx-auto gap-5 flex flex-col">
+                <div className="font-serif">
+                  <h3 className="text-lg font-sans font-black">MY LINKS {spinnedStars}</h3>
+                  <div className="">
+                    <ul className="">
+                      <li><a className="ms-0.5" href="https://bsky.app/profile/zelda.sh" target="_blank" rel="noreferrer">Bluesky</a></li>
+                      <li><a className="ms-0.5" href="https://a.junimo.party/@zelda" target="_blank" rel="noreferrer">Mastodon</a></li>
+                      <li><a className="ms-0.5" href="https://t.me/zezelda" target="_blank" rel="noreferrer">Telegram</a></li>
+                    </ul>
+                  </div>
+                  <h3 className="text-lg font-sans font-black mt-5">MY FRIENDS {spinnedStars}</h3>
+                  <div className="">
+                    <ul className="">
+                      <li><a className="ms-0.5" href="https://steffo.eu" target="_blank" rel="noreferrer">Steffo</a></li>
+                      <li><a className="ms-0.5" href="https://fermitech.info" target="_blank" rel="noreferrer">Balu</a></li>
+                      <li><a className="ms-0.5" href="https://gimbaro.dev" target="_blank" rel="noreferrer">Gimbaro</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </body>
