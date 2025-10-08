@@ -41,16 +41,6 @@ const ChicagoFLF = localFont({
   variable: "--font-chicago",
 });
 
-const SortsMillGoudy = localFont({
-  src: [
-    { path: "../public/fonts/sorts-mill/GoudySTM-webfont.woff" },
-    // { path: "../public/fonts/sorts-mill/GoudySTM-Italic-webfont.woff" }
-  ],
-  weight: "400",
-  style: "serif",
-  variable: "--font-sorts-mill-goudy",
-});
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -85,7 +75,7 @@ export default async function RootLayout({
         </script>
       </head>
       <body
-        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} ${ChicagoFLF.className} ${SortsMillGoudy.className} flex justify-center`}
+        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} ${ChicagoFLF.className} flex justify-center`}
       >
         <div className="">
           <div className="flex flex-col lg:flex-row w-full my-8 gap-5 lg:gap-14 items-start">
