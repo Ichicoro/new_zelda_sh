@@ -17,7 +17,7 @@ export default async function Blog() {
   const files = await readdir("./src/posts");
   const posts: PostMetadata[] = [];
 
-  for (const dir of files) {
+  for (const dir of files.filter(f => f !== ".DS_Store")) {
     try {
       const { metadata } = await import(`@/src/posts/${dir}/post.mdx`);
       metadata.date = new Date(metadata.date);

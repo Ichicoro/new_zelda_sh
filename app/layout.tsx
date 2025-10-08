@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { Germania_One, Rosarivo } from "next/font/google";
 import "./globals.css";
 import Lair from "../public/lair.svg";
-import Star from "@/public/ul_point.svg"
+import clsx from "classnames";
 
 const germania = Germania_One({
   weight: "400",
@@ -51,12 +51,15 @@ const SortsMillGoudy = localFont({
   variable: "--font-sorts-mill-goudy",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const spinnedStars = <><Star className="inline ml-0 w-3 h-4" /><Star className="inline ml-1 w-3 h-4 rotate-12" /><Star className="inline ml-1 w-3 h-4 rotate-[24deg]" /></>
+  // const spinnedStars = <><Star className="inline ml-0 w-3 h-4" /><Star className="inline ml-1 w-3 h-4 rotate-12" /><Star className="inline ml-1 w-3 h-4 rotate-[24deg]" /></>
+  // const headerList = headers();
+  // const pathname = (await headerList).get("x-current-path");
+  // console.log(pathname);
 
   return (
     <html lang="en">
@@ -95,31 +98,12 @@ export default function RootLayout({
                 {/* <Header showTitle={false} activePath="blog" /> */}
               </div>
             </div>
-            <main className="flex flex-col gap-4 max-w-[calc(100vw_-_3rem)] lg:max-w-[33rem]">
+            <main className={clsx("flex flex-col gap-4 max-w-[calc(100vw_-_3rem)]", {
+              "lg:max-w-[33rem]": true,
+              "xl:max-w-[40rem]": true,
+            })}>
               {children}
             </main>
-            {/* <div className="w-[147px] hidden lg:block lg:mx-auto relative">
-              <div className="lg:fixed mx-auto gap-5 flex flex-col">
-                <div className="font-serif">
-                  <h3 className="text-lg font-sans font-black">MY LINKS {spinnedStars}</h3>
-                  <div className="">
-                    <ul className="">
-                      <li><a className="ms-0.5" href="https://bsky.app/profile/zelda.sh" target="_blank" rel="noreferrer">Bluesky</a></li>
-                      <li><a className="ms-0.5" href="https://a.junimo.party/@zelda" target="_blank" rel="noreferrer">Mastodon</a></li>
-                      <li><a className="ms-0.5" href="https://t.me/zezelda" target="_blank" rel="noreferrer">Telegram</a></li>
-                    </ul>
-                  </div>
-                  <h3 className="text-lg font-sans font-black mt-5">MY FRIENDS {spinnedStars}</h3>
-                  <div className="">
-                    <ul className="">
-                      <li><a className="ms-0.5" href="https://steffo.eu" target="_blank" rel="noreferrer">Steffo</a></li>
-                      <li><a className="ms-0.5" href="https://fermitech.info" target="_blank" rel="noreferrer">Balu</a></li>
-                      <li><a className="ms-0.5" href="https://gimbaro.dev" target="_blank" rel="noreferrer">Gimbaro</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </body>

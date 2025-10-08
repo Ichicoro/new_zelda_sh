@@ -1,0 +1,44 @@
+import Star from "@/public/ul_point.svg"
+
+export const metadata = {
+  title: "Showing password asterisks as feedback in sudo",
+  description:
+    "How to show password feedback instead of nothing on the sudo password prompt",
+  authors: [{ name: "Zelda" }],
+  date: "2025-10-08",
+  disabled: false,
+  keywords: [
+    "Linux",
+    "sudo",
+    "password",
+    "pwfeedback",
+    "feedback",
+  ],
+}
+
+# Showing password asterisks as feedback in sudo
+
+A friend showed me a very useful feature he had enabled in sudo, which let him see a masked (with asterisks) view of the typed characters in the password prompt. Here's how to enable it! <Star className="inline ml-0 w-3 h-4" />
+
+Open your terminal and edit your sudoers file with `visudo`:
+
+```bash
+sudo visudo
+```
+
+> ### <Star className="inline ml-0 w-3 h-4" /> Side note!
+> It might be useful to set the `EDITOR` env var to something else to avoid the pain that is `vim`.
+> 
+> For example:
+> ```bash
+> EDITOR=micro sudo visudo
+> ```
+
+Modify the following line
+```
+Defaults env_reset
+```
+with
+```
+Defaults env_reset,pwfeedback
+```
