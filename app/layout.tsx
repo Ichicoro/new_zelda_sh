@@ -60,18 +60,23 @@ export default async function RootLayout({
         <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
         <script type="text/javascript" defer>
           {/* TODO: Fix */}
-          {`document.querySelectorAll(".code-copybutton").forEach((button) => {
-          button.addEventListener("click", async () => {
-            console.log("copy button clicked");
-            const code = button.nextElementSibling?.innerText;
-            if (!code) return;
-            await navigator.clipboard.writeText(code);
-            button.innerText = "copied!";
-            setTimeout(() => {
-              button.innerText = "copy";
-            }, 2000);
-          })
-        })`}
+          {`
+            document.addEventListener('DOMContentLoaded', () => {
+              document.body.addEventListener("click", async () => {
+                if (event.target.classList.contains("code-copybutton")) {
+                  const button = event.target;
+                  console.log("copy button clicked");
+                  const code = button.nextElementSibling?.innerText;
+                  if (!code) return;
+                  await navigator.clipboard.writeText(code);
+                  button.innerText = "copied!";
+                  setTimeout(() => {
+                    button.innerText = "copy";
+                  }, 2000);
+                }
+              })
+            });
+          `}
         </script>
       </head>
       <body

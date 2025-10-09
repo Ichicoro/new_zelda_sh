@@ -24,8 +24,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     pre: ({ children }) => (
       <div className="!overflow-x-scroll relative" style={{ overflowX: "scroll" }}>
-        <button className="code-copybutton absolute top-1 right-1 font-mono !bg-code-foreground !text-code-background rounded z-10 text-sm px-2 py-1 flex justfiy-center items-center h-6 opacity-30 hover:opacity-100 transition-opacity">
-          <span className="-translate-y-[2px]">copy</span>
+        <button className="code-copybutton absolute top-1 right-1 font-mono !bg-code-foreground !text-code-background rounded z-10 text-sm px-1 py-1 pb-1.5 flex justfiy-center items-center h-5 opacity-30 hover:opacity-100 transition-opacity">
+          copy
         </button>
         <pre className="relative rounded-lg">{children}</pre>
       </div>
