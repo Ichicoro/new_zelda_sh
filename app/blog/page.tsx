@@ -1,6 +1,7 @@
 "use server";
 import Header from "@/components/Header";
 import { readdir } from 'fs/promises'
+import { Metadata } from "next";
 import Link from "next/link";
 
 type PostMetadata = {
@@ -10,6 +11,11 @@ type PostMetadata = {
   keywords: string[];
   date: Date;
   slug: string;
+};
+
+export const metadata: Metadata = {
+  title: "Zelda's Lair – Blog",
+  description: "hey :)",
 };
 
 export default async function Blog() {

@@ -44,7 +44,7 @@ export async function generateMetadata({
   try {
     const { metadata } = await import(`@/src/posts/${slug}/post.mdx`);
     return {
-      title: metadata.title,
+      title: `Zelda's Lair – ${metadata.title}`,
       description: metadata.description,
       keywords: metadata.keywords,
       authors: metadata.authors.map((a: { name: string }) => a.name),
@@ -65,7 +65,7 @@ export async function generateMetadata({
     };
   } catch {
     return {
-      title: "Post not found",
+      title: "Zelda's Lair - 404",
       description: "The post could not be found.",
     };
   }

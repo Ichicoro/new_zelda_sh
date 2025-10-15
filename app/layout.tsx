@@ -16,7 +16,7 @@ const rosarivo = Rosarivo({
 });
 
 export const metadata: Metadata = {
-  title: "zelda.sh",
+  title: "Zelda's Lair",
   description: "hey :)",
 };
 
