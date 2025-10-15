@@ -15,11 +15,6 @@ const rosarivo = Rosarivo({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Zelda's Lair",
-  description: "hey :)",
-};
-
 const BasteleurBold = localFont({
   src: "../public/fonts/basteleur/Basteleur-Bold.woff",
   weight: "400",
@@ -104,4 +99,11 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Zelda's Lair",
+    description: "hey :)",
+  };
 }

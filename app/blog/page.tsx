@@ -13,11 +13,6 @@ type PostMetadata = {
   slug: string;
 };
 
-export const metadata: Metadata = {
-  title: "Zelda's Lair – Blog",
-  description: "hey :)",
-};
-
 export default async function Blog() {
   // Load posts metadata
   const files = await readdir("./src/posts");
@@ -65,4 +60,11 @@ export default async function Blog() {
       )}
     </div>
   </div>;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Zelda's Lair – Blog",
+    description: "hey :)",
+  };
 }
