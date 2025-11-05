@@ -22,7 +22,7 @@ type Props = { activePath: PageEnum, showTitle?: boolean, dots?: string };
 
 const Header: React.FunctionComponent<Props> = ({ activePath, showTitle = true, dots }) => {
   return <div className="flex flex-col justify-center items-center lg:items-start">
-    {showTitle && <h1 className="font-sans leading-tight">ZELDA&apos;S LAIR</h1>}
+    {showTitle && <h1 className="font-titles leading-tight">ZELDA&apos;S LAIR</h1>}
     <div className={`font-germania-one font-bold text-2xl flex flex-row lg:flex-col gap-3 lg:gap-0 mb-2`}>
       {linkArray.map((link) => {
         const isActivePath = link.activePage === activePath;

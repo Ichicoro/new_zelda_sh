@@ -18,9 +18,10 @@ export default {
         "quote-background": "var(--quote-background)",
       },
       fontFamily: {
-        serif: ["var(--font-basteleur-moonlight)"],
+        serif: ["IBM Plex Mono", "monospace"],
         // serif: ["Rosarivo", "serif"],
-        sans: ["var(--font-basteleur-bold)"],
+        sans: ["IBM Plex Mono", "monospace"],
+        "titles": ["Basteleur Bold", "serif"],
         "germania-one": ["Germania One", "cursive"],
         "rosarivo": ["Rosarivo", "serif"],
         mono: ["Space Mono", "monospace"],

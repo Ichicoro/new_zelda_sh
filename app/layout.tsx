@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
-import { Germania_One, Rosarivo } from "next/font/google";
+import { Germania_One, Rosarivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Lair from "../public/lair.svg";
 import clsx from "classnames";
@@ -14,6 +14,12 @@ const rosarivo = Rosarivo({
   weight: "400",
   subsets: ["latin"],
 });
+
+const ibmplexmono = IBM_Plex_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-mono",
+})
 
 const BasteleurBold = localFont({
   src: "../public/fonts/basteleur/Basteleur-Bold.woff",
@@ -75,7 +81,7 @@ export default async function RootLayout({
         </script>
       </head>
       <body
-        className={`antialiased font-serif ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} ${ChicagoFLF.className} flex justify-center`}
+        className={`antialiased font-serif ${ibmplexmono.className} ${germania.className} ${rosarivo.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} ${ChicagoFLF.className} flex justify-center`}
       >
         <div className="">
           <div className="flex flex-col lg:flex-row w-full my-8 gap-5 lg:gap-14 items-start">

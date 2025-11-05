@@ -23,7 +23,7 @@ body {
   @apply px-4;
   color: var(--foreground) !important;
   background: var(--background) !important;
-  font-family: "Basteleur Moonlight", sans-serif;
+  /* font-family: "IBM Plex Mono", sans-serif; */
 }
 
 main {
@@ -40,7 +40,8 @@ em {
 }
 
 strong {
-  @apply font-sans;
+  /* @apply font-sans; */
+  @apply font-bold;
 }
 
 a {
@@ -51,6 +52,10 @@ a {
   & a {
     @apply hover:underline hover:decoration-dotted underline-offset-2 font-sans;
   }
+}
+
+h1, h2, h3, h4 {
+  @apply font-titles;
 }
 
 h1 {

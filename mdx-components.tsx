@@ -9,9 +9,9 @@ const spaceMono = Space_Mono({
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
-    h1: ({ children }) => <h1 className="text-2xl font-bold font-sans">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-xl font-bold font-sans">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-lg font-bold font-sans">{children}</h3>,
+    h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-xl">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-lg">{children}</h3>,
     p: ({ children }) => <p className="leading-relaxed">{children}</p>,
     ul: ({ children }) => <ul className="">{children}</ul>,
     ol: ({ children }) => <ol className="">{children}</ol>,
