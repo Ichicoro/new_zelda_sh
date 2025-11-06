@@ -40,7 +40,7 @@ export default async function Blog() {
       <p>
         Welcome to my blog, where I share my thoughts, musings and ideas.
       </p>
-      <h3 className="font-sans mt-3">RECENT POSTS</h3>
+      <h3 className="mt-3">RECENT POSTS</h3>
       {posts.length > 0 ? (
         <div className="flex flex-col gap-4">
           {posts.map((post, index) => (
