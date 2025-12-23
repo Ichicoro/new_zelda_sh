@@ -17,7 +17,7 @@ export default function Home() {
     <div className="pt-5 flex flex-col gap-3">
       <h2>CONTACT</h2>
       <div className="uses-cool-links mb-6">
-        <p>Should you seek my talents, they are yours — for a price, of course.</p>
+        <p>Should you seek my talents, they are yours — <em>for a price, of course</em>.</p>
         <p>
           Summon me with a message, be it {/* by enchanted scroll (email me at <a href="mailto:hello@zelda.sh">hello@zelda.sh</a>) or */} through <strong>Telegram</strong> or <strong>Discord</strong>, where I answer to <strong>@zezelda</strong>, or via enchanted scroll (email me at <a href="mailto:hello@zelda.sh">hello@zelda.sh</a>!). You may also find me looking for new potions to concoct on <strong>Bluesky</strong> (<a href="https://bsky.app/profile/zelda.sh">@zelda.sh</a>) or among the many realms of the fediverse on <strong>Mastodon</strong> (<a href="https://a.junimo.party/@zelda">@zelda@a.junimo.party</a>).
         </p>

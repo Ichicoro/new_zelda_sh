@@ -18,9 +18,9 @@ export default {
         "quote-background": "var(--quote-background)",
       },
       fontFamily: {
-        serif: ["IBM Plex Mono", "monospace"],
+        serif: ["iA Writer Quattro V", "IBM Plex Mono", "monospace"],
         // serif: ["Rosarivo", "serif"],
-        sans: ["IBM Plex Mono", "monospace"],
+        sans: ["iA Writer Quattro V", "IBM Plex Mono", "monospace"],
         "titles": ["Basteleur Bold", "serif"],
         "germania-one": ["Germania One", "cursive"],
         "rosarivo": ["Rosarivo", "serif"],

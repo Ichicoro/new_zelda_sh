@@ -49,7 +49,7 @@ export default async function Blog() {
               <Link href={`/blog/${post.slug}`}>
                 <h3 className="text-xl font-semibold font-sans mt-1 underline decoration-dotted">{post.title}</h3>
               </Link>
-              <p className="opacity-90 mt-2">{post.description}</p>
+              <p className="opacity-90 mt-2"><em>{post.description}</em></p>
             </div>
           ))}
         </div>
