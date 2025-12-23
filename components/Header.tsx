@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { Url } from "next/dist/shared/lib/router/router";
 
-type PageEnum = "home" | "blog" | "portfolio" | "photos";
+type PageEnum = "home" | "blog" | "portfolio" | "photos" | "garden";
 
 type LinkType = {
   name: string;
@@ -15,7 +15,8 @@ const linkArray: LinkType[] = [
   { name: "Home", path: "/", activePage: "home" },
   { name: "Blog", path: "/blog", activePage: "blog" },
   { name: "Portfolio", path: "/portfolio", activePage: "portfolio" },
-  { name: "Photos", path: "/photos", activePage: "photos", active: false },
+  { name: "Digital Garden", path: "https://garden.zelda.sh", activePage: "garden" }
+  // { name: "Photos", path: "/photos", activePage: "photos", active: false },
 ]
 
 type Props = { activePath: PageEnum, showTitle?: boolean, dots?: string };
