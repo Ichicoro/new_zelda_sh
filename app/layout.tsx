@@ -84,7 +84,7 @@ export default async function RootLayout({
         </script>
       </head>
       <body
-        className={`antialiased font-serif ${ibmplexmono.className} ${iAWriterQuattroV.className} ${germania.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
+        className={`antialiased ${ibmplexmono.className} ${iAWriterQuattroV.className} ${germania.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
       >
         <div className="">
           <div className="flex flex-col lg:flex-row w-full my-8 gap-5 lg:gap-14 items-start">

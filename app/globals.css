@@ -23,7 +23,7 @@ body {
   @apply px-4;
   color: var(--foreground) !important;
   background: var(--background) !important;
-  /* font-family: "IBM Plex Mono", sans-serif; */
+  font-family: var(--font-ia-writer-quattro-v), monospace;
 }
 
 main {
@@ -54,8 +54,10 @@ a {
   }
 }
 
-h1, h2, h3, h4 {
-  @apply font-titles;
+h1, h2, h3, h4, .font-titles {
+  /* @apply font-titles; */
+  /* @apply --font-basteleur-bold, serif; */
+  font-family: var(--font-basteleur-bold), serif;
 }
 
 h1 {
