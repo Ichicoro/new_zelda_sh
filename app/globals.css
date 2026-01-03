@@ -30,6 +30,13 @@ main {
   /* @apply px-4; */
 }
 
+/* header.h1 {
+  @apply md:text-xl;
+}
+header .header__link {
+  @apply text-xl sm:text-2xl;
+} */
+
 svg {
   color: currentColor;
 }

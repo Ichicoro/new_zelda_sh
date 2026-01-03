@@ -97,7 +97,8 @@ export default async function RootLayout({
                 {/* <Header showTitle={false} activePath="blog" /> */}
               </div>
             </div>
-            <main className={clsx("flex flex-col gap-4 max-w-[calc(100vw_-_3rem)]", {
+            {/* Used to use max-w-[calc(100vw_-_3rem)] */}
+            <main className={clsx("flex flex-col gap-4 max-w-[40rem]", {
               "lg:max-w-[33rem]": true,
               "xl:max-w-[40rem]": true,
             })}>

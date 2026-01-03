@@ -22,14 +22,14 @@ const linkArray: LinkType[] = [
 type Props = { activePath: PageEnum, showTitle?: boolean, dots?: string };
 
 const Header: React.FunctionComponent<Props> = ({ activePath, showTitle = true, dots }) => {
-  return <div className="flex flex-col justify-center items-center lg:items-start">
+  return <header className="flex flex-col justify-center items-center text-center lg:items-start">
     {showTitle && <h1 className="font-titles leading-tight">ZELDA&apos;S LAIR</h1>}
-    <div className={`font-germania-one font-bold text-2xl flex flex-row lg:flex-col gap-3 lg:gap-0 mb-2`}>
+    <div className={`font-germania-one font-bold text-2xl flex flex-wrap flex-row lg:flex-col transition-[column-gap] gap-x-4 justify-center my-1 lg:my-2`}>
       {linkArray.map((link) => {
         const isActivePath = link.activePage === activePath;
 
         return link.active !== false
-          ? <div key={link.name} className="flex flex-row gap-1">
+          ? <div key={link.name} className="header__link flex flex-row gap-1">
             {dots !== undefined && isActivePath ? <div className="block lg:hidden text-center h-1">·</div> : null}
             <Link
               className={`cursor-pointer flex flex-row gap-1 ${isActivePath ? "opacity-100" : "opacity-75"} ${link.active ? "text-gray-500" : ""} ${dots !== undefined ? "opacity-75" : ""}`}
@@ -48,7 +48,7 @@ const Header: React.FunctionComponent<Props> = ({ activePath, showTitle = true, 
           </span>
       })}
     </div>
-  </div>
+  </header>
 }
 
 export default Header

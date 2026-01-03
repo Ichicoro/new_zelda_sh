@@ -7,10 +7,10 @@ const getAge = () => {
 }
 
 export default function Home() {
-  return <div className="">
+  return <div>
     <Header activePath="home" />
     <div className="pt-2.5 flex flex-col gap-3">
-      <p className="">
+      <p>
         Greetings, adventurer of the web! I&apos;m <strong>Zelda</strong>, a {getAge() | 26} years old witch and enchantress with a keen eye for crafting experiences in the digital (and physical!) realm. By day, I weave code into captivating websites and applications; by night, I tinker with electronics and dream up new creations.
       </p>
     </div>
