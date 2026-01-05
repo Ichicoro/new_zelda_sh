@@ -62,6 +62,8 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#c3b7ab" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" type="image/png" href="favicon.png" sizes="any" />
+        <link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)" sizes="any" />
         <script type="text/javascript" defer>
           {/* TODO: Fix */}
           {`
