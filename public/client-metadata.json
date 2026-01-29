@@ -1,0 +1,19 @@
+{
+  "client_id": "https://zelda.sh/client-metadata.json",
+  "client_name": "zelda.sh guestbook",
+  "client_uri": "https://zelda.sh",
+  "redirect_uris": [
+    "https://zelda.sh/guestbook"
+  ],
+  "scope": "atproto transition:generic",
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ],
+  "response_types": [
+    "code"
+  ],
+  "token_endpoint_auth_method": "none",
+  "application_type": "web",
+  "dpop_bound_access_tokens": true
+}

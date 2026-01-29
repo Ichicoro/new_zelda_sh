@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@atcute/client": "^4.2.1",
+    "@atcute/identity-resolver": "^1.2.2",
+    "@atcute/oauth-browser-client": "^2.0.3",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.0.8",
     "@svgr/webpack": "^8.1.0",
     "@types/mdx": "^2.0.13",
     "classnames": "^2.5.1",
+    "cutebook": "^0.1.1",
     "next": "16",
     "react": "^19.2.1",
     "react-dom": "^19.2.1"
