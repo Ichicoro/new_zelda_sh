@@ -4,6 +4,7 @@ import { Germania_One, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Lair from "../public/lair.svg";
 import clsx from "classnames";
+import ClickSparkOverlay from "@/components/ClickSparkOverlay";
 
 const germania = Germania_One({
   weight: "400",
@@ -86,9 +87,10 @@ export default async function RootLayout({
         </script>
       </head>
       <body
-        className={`antialiased ${ibmplexmono.className} ${iAWriterQuattroV.className} ${germania.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
+        className={`antialiased h-full ${ibmplexmono.className} ${iAWriterQuattroV.className} ${germania.className} ${BasteleurMoonlight.variable} ${BasteleurBold.variable} flex justify-center`}
       >
         <div className="">
+          <ClickSparkOverlay color={"var(--foreground)"} />
           <div className="flex flex-col lg:flex-row w-full my-8 gap-5 lg:gap-14 items-start">
             <div className="w-[147px] mx-auto relative"> {/* mb-8 sm:mb-0 sm:mr-14 */}
               <div className="lg:fixed mx-auto gap-5 flex flex-col">
