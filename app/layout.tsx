@@ -65,6 +65,8 @@ export default async function RootLayout({
         <meta name="theme-color" content="#241f1a" media="(prefers-color-scheme: dark)" />
         <link rel="icon" type="image/png" href="favicon.png" sizes="any" />
         <link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)" sizes="any" />
+        <meta name="you" content="cute" />
+        <meta name="trans:rights" content="human-rights" />
         <script type="text/javascript" defer>
           {/* TODO: Fix */}
           {`
