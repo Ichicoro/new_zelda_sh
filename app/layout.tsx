@@ -5,6 +5,7 @@ import "./globals.css";
 import Lair from "../public/lair.svg";
 import clsx from "classnames";
 import ClickSparkOverlay from "@/components/ClickSparkOverlay";
+import { Analytics } from "@vercel/analytics/next";
 
 const germania = Germania_One({
   weight: "400",
@@ -109,6 +110,7 @@ export default async function RootLayout({
               "xl:max-w-[40rem]": true,
             })}>
               {children}
+              <Analytics />
             </main>
           </div>
         </div>
